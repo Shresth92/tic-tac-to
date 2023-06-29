@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { Box } from "./components/box/Box";
 
-function App() {
+const App = () => {
+  const [cellState, setCellState] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [prevChance, setPrevChance] = useState(0);
+
+  const refreshGame = () => {
+    setCellState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    setPrevChance(0);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="tic-tac">
+        <h1 id="heading">Tic Tac Toe</h1>
+        <div id="line"></div>
+        <Box
+          cellState={cellState}
+          setCellState={setCellState}
+          setPrevChance={setPrevChance}
+          prevChance={prevChance}
+          refreshGame={refreshGame}
+        />
+        <button id="new-game-button" onClick={() => refreshGame()}>
+          New Game
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

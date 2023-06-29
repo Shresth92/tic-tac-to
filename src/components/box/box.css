@@ -1,0 +1,26 @@
+.box{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 20vw;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.box-item{
+    display: flex;
+    border: 1px solid #0590ed;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+@media (max-width : 800px) {
+    .box-item{
+        font-size: 30px;
+    }
+  }
